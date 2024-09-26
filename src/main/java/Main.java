@@ -5,7 +5,6 @@ class Main{
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() { new App("AudioPlayer").setVisible(true); }
-
         });
     }
 }
