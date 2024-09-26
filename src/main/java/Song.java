@@ -8,26 +8,40 @@ public class Song {
     private String path;
     private String artist;
     private String name;
-    private String len_of_song;
+    private int len_of_song;
 
-    public Song(String path){
-        this.path = path;
+    public Song(String path) {
+        this.path = (path.isEmpty())? "null" : path;
+        this.name = "Unknown";
+        this.artist = "Unknown";
+        this.len_of_song = 0;
+
         try {
             AudioFile file = AudioFileIO.read(new File(path));
             Tag tag = file.getTag();
-            if(tag != null){
+            if (tag != null) {
                 this.name = tag.getFirst(FieldKey.TITLE);
                 this.artist = tag.getFirst(FieldKey.ARTIST);
-            }else{
-                this.name = "Unknown";
-                this.artist = "Unknown";
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+            System.out.println("Cannot load song! Path: " + this.path);
+        }
     }
 
     // Getters
-    public String getPath() { return path; }
-    public String getArtist() { return artist; }
-    public String getName() { return name; }
-    public String getLen_of_song() { return len_of_song; }
+    public String getPath() {
+        return this.path;
+    }
+
+    public String getArtist() {
+        return this.artist;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getLen_of_song() {
+        return this.len_of_song;
+    }
 }

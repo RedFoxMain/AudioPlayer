@@ -6,6 +6,5 @@ class Main{
             @Override
             public void run() { new App("AudioPlayer").setVisible(true); }
         });
-
     }
 }
