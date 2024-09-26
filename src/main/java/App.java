@@ -18,7 +18,7 @@ public class App extends JFrame {
     private Color background_color = Color.WHITE;
 
     // Create main window
-    App(String app_name) {
+    public App(String app_name) {
         super(app_name);
         setResizable(false);
         setSize(350, 600);
